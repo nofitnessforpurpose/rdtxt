@@ -1,7 +1,7 @@
 # RDTXT
-A simple text file viewer for CM, XP, LA, LZ & POS models
+A simple text file viewer for Organiser II model CM, XP, LA, LZ & POS models
 
-This <a href="https://en.wikipedia.org/wiki/Psion_Organiser"> Organiser II</a> <a href="https://en.wikipedia.org/wiki/Open_Programming_Language">OPL program</a> allows viewing of a text file held on any of the Organiser data packs. .  
+This <a href="https://en.wikipedia.org/wiki/Psion_Organiser"> Organiser II</a> <a href="https://en.wikipedia.org/wiki/Open_Programming_Language">OPL program</a> allows viewing of a text file held on any of the Organiser II data packs. .  
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
