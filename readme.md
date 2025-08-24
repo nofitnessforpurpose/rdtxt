@@ -57,7 +57,7 @@ Organiser II program files are not text files. Attempting to open a program file
 <BR>
 
 ## Installation
-<a href="https://www.jaapsch.net/psion/connect.htm">Download</a> the (a href="https://github.com/nofitnessforpurpose/rdtxt/tree/main/code">source</a> POPL code into the target Organsier device and Translate it on the target machine. If the defualt filename rdtxt was used to save the received program file. Following translation, RUN the program rdtxt and enter the desired data pack and selected text file name.  
+<a href="https://www.jaapsch.net/psion/connect.htm">Download</a> the <a href="https://github.com/nofitnessforpurpose/rdtxt/tree/main/code">source</a> POPL code into the target Organsier device and Translate it on the target machine. If the defualt filename rdtxt was used to save the received program file. Following translation, RUN the program rdtxt and enter the desired data pack and selected text file name.  
 
 <BR>
 
