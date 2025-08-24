@@ -2,7 +2,7 @@ rdtxt:
 REM Display Text File on PSION Organiser II
 REM Prog : rdtxt
 REM Rev  : 0.1
-REM Model: CM, XP, LA, LZ, LZ64
+REM Model: CM, XP, LA, LZ, LZ64 and POS
 REM Auth : NFfP
 REM Date : 2025/08/24
 
@@ -11,7 +11,7 @@ LOCAL rows%, width%, blank%
 LOCAL line$(254), disp$(20), arrow$(8)
 
 REM --- Define UDG arrow (bottom-right) ---
-REM This is a small diagonal arrow  shape
+REM This is a small diagonal arrow shape
 POKEB $180,64: POKEB $181,16 :POKEB $181,8: POKEB $181,5: POKEB $181,3: POKEB $181,7: POKEB $181,0: POKEB $181,0: POKEB $181,0
 REM Use CHR$(0) to print arrow
 
@@ -30,7 +30,7 @@ IF ERR
 ENDIF
 
 REM --- File size ---
-fsize% = 0 : rem SIZE(A)
+fsize% = 0 : rem SIZE(A) - TBD
 
 REM --- Splash: filename + size ---
 CLS
@@ -120,6 +120,5 @@ POKEB $A4,$00: REM Click
 POKEB $69,$04: REM Hriz scrl rt
 POKEB $6B,$0A: REM Vert scrl rt
 POKEB $77,$0E: REM Repeat
-
 
 RETURN
