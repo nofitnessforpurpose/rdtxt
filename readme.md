@@ -52,7 +52,7 @@ The file type viewable is a text file:
 A standalone viewer for viewing of text files. The text files might for example have been created locally on the device or downloaded.  
 
 Note  
-Organiser II program files are not text files. Attempting to open a program file may lock the device!  
+Organiser II program files are not text files. Attempting to open a program file may lock the device! Pressing CLEAR and Q may exit the program.    
 
 <BR>
 
