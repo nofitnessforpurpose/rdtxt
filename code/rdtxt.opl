@@ -1,0 +1,125 @@
+rdtxt:
+REM Display Text File on PSION Organiser II
+REM Prog : rdtxt
+REM Rev  : 0.1
+REM Model: CM, XP, LA, LZ, LZ64
+REM Auth : NFfP
+REM Date : 2025/08/24
+
+LOCAL path$(16), n%, top%, col%, k%, pos%, i%, fsize%
+LOCAL rows%, width%, blank%
+LOCAL line$(254), disp$(20), arrow$(8)
+
+REM --- Define UDG arrow (bottom-right) ---
+REM This is a small diagonal arrow  shape
+POKEB $180,64: POKEB $181,16 :POKEB $181,8: POKEB $181,5: POKEB $181,3: POKEB $181,7: POKEB $181,0: POKEB $181,0: POKEB $181,0
+REM Use CHR$(0) to print arrow
+
+REM --- File selection ---
+PRINT "File > a:readme?";
+AT 1,2
+INPUT path$
+IF path$ = ""
+  path$ = "a:readme"
+ENDIF
+TRAP OPEN path$,A,line$
+IF ERR
+  PRINT "No file chosen"
+  PAUSE -40
+  RETURN
+ENDIF
+
+REM --- File size ---
+fsize% = 0 : rem SIZE(A)
+
+REM --- Splash: filename + size ---
+CLS
+AT 1,1 :PRINT "Fname:";path$
+AT 1,2 :PRINT fsize%;" bytes"
+PAUSE -40 :REM about 10 seconds
+
+POKEB $A4,$01: REM Click off
+POKEB $69,$01: REM Hriz scrl rt
+POKEB $6B,$01: REM Vert scrl rt
+POKEB $77,$12: REM Key rpt rt
+
+USE A
+n%=COUNT
+IF (n%=0)
+  PRINT "Empty file"
+  PAUSE 40
+  CLOSE :RETURN
+ENDIF
+
+REM Screen geometry (adjust for model)
+rows%=2    :REM CM/XP: 2 lines
+width%=16  :REM CM/XP: 16 chars per line
+REM For LZ: rows%=4, width%=20
+
+top%=1     :REM first visible record
+col%=0     :REM horizontal offset
+
+ESCAPE OFF
+DO
+  blank%=1   :REM assume blank until proven otherwise
+
+  REM ---- draw lines with overwrite ----
+  i%=0
+  DO
+    pos%=top%+i%
+    IF pos%<=n%
+      POSITION pos%
+      line$=A.line$
+      IF LEN(line$)>col%
+        disp$=MID$(line$,col%+1,width%)
+      ELSE
+        disp$=""
+      ENDIF
+    ELSE
+      disp$=""
+    ENDIF
+
+    REM Pad with spaces to clear stale text
+    disp$=disp$+LEFT$("                ",width%-LEN(disp$))
+
+    AT 1,i%+1 :PRINT disp$
+
+    IF disp$<>REPT$(" ",width%)
+      blank%=0   :REM found non-blank line
+    ENDIF
+
+    i%=i%+1
+  UNTIL i%>=rows%
+
+  REM ---- if blank screen, show arrow in top-right ----
+  IF blank%
+    AT 1,1 :PRINT CHR$(0):
+  ENDIF
+
+  REM ---- wait for key ----
+  k%=GET
+
+  IF k%=3 AND top%>1
+    top%=top%-1              :REM Up
+  ELSEIF k%=4 AND top%+rows%-1<n%
+    top%=top%+1              :REM Down
+  ELSEIF k%=5 AND col%>0
+    col%=col%-1              :REM Left
+  ELSEIF k%=6 AND col%<234
+    col%=col%+1              :REM Right
+  ELSEIF k%=13 OR k%=1 OR k%=81 or K%=113
+    BREAK                    :REM EXE or ON/CLEAR -> exit
+  ENDIF
+
+UNTIL 0
+CLOSE
+ESCAPE ON
+
+REM Reset
+POKEB $A4,$00: REM Click 
+POKEB $69,$04: REM Hriz scrl rt
+POKEB $6B,$0A: REM Vert scrl rt
+POKEB $77,$0E: REM Repeat
+
+
+RETURN
