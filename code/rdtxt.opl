@@ -39,8 +39,8 @@ AT 1,2 :PRINT fsize%;" bytes"
 PAUSE -40 :REM about 10 seconds
 
 POKEB $A4,$01: REM Click off
-POKEB $69,$01: REM Hriz scrl rt
-POKEB $6B,$01: REM Vert scrl rt
+POKEB $6A,$02: REM Hriz scrl rt
+POKEB $6C,$02: REM Vert scrl rt
 POKEB $77,$12: REM Key rpt rt
 
 USE A
@@ -117,8 +117,8 @@ ESCAPE ON
 
 REM Reset
 POKEB $A4,$00: REM Click 
-POKEB $69,$04: REM Hriz scrl rt
-POKEB $6B,$0A: REM Vert scrl rt
+POKEB $6A,$04: REM Hriz scrl rt
+POKEB $6C,$0A: REM Vert scrl rt
 POKEB $77,$0E: REM Repeat
 
 RETURN
