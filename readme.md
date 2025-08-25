@@ -16,10 +16,14 @@ This <a href="https://en.wikipedia.org/wiki/Psion_Organiser"> Organiser II</a> <
 ![GitHub repo size](https://img.shields.io/github/repo-size/nofitnessforpurpose/rdtxt?style=flat-square)
 
 ## Using
-The code will prompt for a filename (which will have no extension on the Organiser II). The default filename is A:README.  
-The arrow keys allow scrolling left, right, up or down through the file.  
+The POPL code will prompt for a filename (which will have no extension on the Organiser II). The default filename is A:README.  
+
+When white space is being viewed in the 'viewing frame' i.e. the Organsisers display, a custom character stylised as a down right arrow is displayed in the top left corner of the viewing frame.  
+
 The program turns off keyboard clicks, speeds up key repeat rate and scroll rates. Default settings are re-established when viewing is terminated.  
-When white space is being viewed in the 'viewing frame' i.e. the Organsisers display, a custom character down right arrow is displayed in the top left corner.  
+
+### Navigation
+Arrow keys allow scrolling left, right, up or down through the file.  
 Exiting viewing is selected by presing ESC, q, Q, or EXE.  
 
 ### File specification
@@ -49,7 +53,7 @@ The file type viewable is a text file:
 
 
 ## Use Case
-A standalone viewer for viewing of text files. The text files might for example have been created locally on the device or downloaded.  
+A light weight POPL standalone viewer for viewing of text files. The text files might for example have been created locally on the device or downloaded. Typical files might be a help file or documentation.   
 
 Note  
 Organiser II program files are not text files. Attempting to open a program file may lock the device! Pressing CLEAR and Q may exit the program.    
