@@ -16,7 +16,7 @@ This <a href="https://en.wikipedia.org/wiki/Psion_Organiser"> Organiser II</a> <
 ![GitHub repo size](https://img.shields.io/github/repo-size/nofitnessforpurpose/rdtxt?style=flat-square)
 
 ## Using
-The POPL code will prompt for a filename (which will have no extension on the Organiser II). The default filename is A:README.  
+The <a href="https://en.wikipedia.org/wiki/Psion_Organiser">POPL</a> code will prompt for a filename (which will have no extension on the Organiser II). The default filename is A:README.  
 
 When white space is being viewed in the 'viewing frame' i.e. the Organsisers display, a custom character stylised as a down right arrow is displayed in the top left corner of the viewing frame.  
 
